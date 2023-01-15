@@ -1,0 +1,16 @@
+server:
+  port: '8001'
+
+spring:
+  datasource:
+    username: ${DATABASE_USER:postgres}
+    hikari:
+      connectionTimeout: '20000'
+      maximumPoolSize: '5'
+#    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:15432}/tasks
+    url: jdbc:postgresql://${DATABASE_HOST:172.20.0.2}:${DATABASE_PORT:5432}/tasks
+    password: ${DATABASE_PASSWD:admin}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate:
+      ddl-auto: ${DATABASE_UPDATE:update}
